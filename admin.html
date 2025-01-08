@@ -6,13 +6,12 @@
     <title>Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg w-full max-w-4xl p-6">
-        <h1 class="text-2xl font-bold mb-4">Admin Panel</h1>
-        <div>
-            <h2 class="text-xl font-semibold mb-3">Users</h2>
-            <div id="users" class="space-y-3">
-                <!-- Users will be dynamically loaded here -->
+<body class="bg-gray-100">
+    <div class="container mx-auto py-6">
+        <div class="bg-white rounded-lg shadow-lg p-4">
+            <h1 class="text-2xl font-bold mb-4">Admin Panel</h1>
+            <div id="users" class="space-y-4">
+                <!-- المستخدمون سيتم تحميلهم هنا -->
             </div>
         </div>
     </div>
@@ -23,10 +22,10 @@
             const usersDiv = document.getElementById('users');
             users.forEach(user => {
                 const userDiv = document.createElement('div');
-                userDiv.className = 'flex items-center justify-between p-3 bg-gray-100 rounded-md shadow-sm';
+                userDiv.className = 'flex justify-between items-center p-3 bg-gray-200 rounded-lg';
                 userDiv.innerHTML = `
                     <span>${user.username} (${user.roles.join(', ')})</span>
-                    <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" onclick="deleteUser(${user.id})">Delete</button>
+                    <button class="bg-red-500 text-white px-3 py-1 rounded-lg" onclick="deleteUser(${user.id})">Delete</button>
                 `;
                 usersDiv.appendChild(userDiv);
             });
